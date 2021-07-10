@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="./style.css">
+        
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+
+    <title>HeaderCatcher</title>
+</head>
+<body>
+    
+        <h1 id="ip" class="text-center">IP address: <span class="data" id="ip"></span></h1>
+
+        <details class="text-center">
+            <summary><u>more informations</u></summary>
+            <h4 class="text-center">ip: <span class="data" id="ip_addr"></span></h4>
+            <h4 class="text-center">continent: <span class="data" id="continent"></span></h4>
+            <h4 class="text-center">country: <span class="data" id="country"></span> <img src="" id="country_flag"/></h4>
+            <h4 class="text-center">country_phone: <span class="data" id="country_phone"></span></h4>
+            <h4 class="text-center">region: <span class="data" id="region"></span></h4>
+            <h4 class="text-center">city: <span class="data" id="city"></span></h4>
+            <h4 class="text-center">latitude: <span class="data" id="latitude"></span></h4>
+            <h4 class="text-center">longitude: <span class="data" id="longitude"></span></h4>
+            <h4 class="text-center">org: <span class="data" id="org"></span></h4>
+        </details>
+
+    </br>
+
+    <table id="headers-table" class="table table-bordered table table-hover">
+
+        <tr>
+            <td colspan='2'><b><h4>Headers</h4></b></td>
+        </tr>
+
+    <% for(key in headers) { %>
+        <tr>
+            <% if(key == 'user-agent' || key == 'accept-language' || key == 'sec-ch-ua') { %>
+                <td><u><b><%=key %></b></u></td>
+                <td><u><b><%=headers[key]%></b></u></td>
+            <% }else { %>
+                <td><%=key %></td>
+                <td><%=headers[key]%></td>
+            <% } %>
+
+        </tr>
+    <% } %>
+
+    </table>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./script.js"></script>
+
+</body>
+</html>
